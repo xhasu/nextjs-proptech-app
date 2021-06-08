@@ -1,0 +1,29 @@
+
+.dashboard {
+  position: relative;
+  
+  &-box {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid hsl(330deg, 40%, 60%);
+  }
+
+  &-content {
+    position: relative;
+    flex: 1;
+  }
+
+  &-aside {
+    flex: none;
+    width: 240px;
+    border-left: 1px solid grey;
+    box-sizing: border-box;
+
+    .aside-wrap {
+      position: relative;
+      padding: 20px 10px;
+      box-sizing: border-box;
+    }
+  }
+}
