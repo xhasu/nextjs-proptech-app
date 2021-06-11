@@ -4,12 +4,13 @@ import AssetActions  from 'app/actions/asset-actions'
 import AssetReducer from 'app/reducers/asset-reducer'
 
 import Cards from 'components/ui/cards' 
+import CreateAsset from 'components/forms/create-asset'
 
 const Dashboard = () => {
 
   const [state, dispatch] = useReducer(AssetReducer, []);
 
-  const { add: AddAsset, reset: AssetReset } = AssetActions();
+  const { reset: AssetReset } = AssetActions();
 
   useEffect(() => {
     const raw = localStorage.getItem('AssetsData');
@@ -23,22 +24,29 @@ const Dashboard = () => {
 
   return (
     <AssetContext.Provider value={dispatch}>
-      <section className="dashboard">
-        <div className="dashboard-box">
-          <div className="dashboard-content">
-            <h2 className="dashboard-title">Inmuebles</h2>
-            <button onClick={() => dispatch(AddAsset())}>Agregar</button>
+      <div className="dashboard">
+        <div className="dashboard-hero">
+          <section className="section">
+            <div className="dashboard-head">
+              <h2 className="dashboard-title">Inmuebles</h2>
+              <div className="dashboard-subtitle">
+                <p>Agregar una propiedad</p>
+              </div>
+            </div>
+            <div className="dashboard-form">
+              <CreateAsset />
+            </div>
+          </section>
+        </div>
+        <div className="dashboard-content">
+          <section className="section">
+            <Cards data={state} />
             <small>
               <pre>{ JSON.stringify(state, null, 2) }</pre>
             </small>
-          </div>
-          <div className="dashboard-aside">
-            <div className="aside-wrap">
-              <Cards data={state} />
-            </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
     </AssetContext.Provider>
   )
 }

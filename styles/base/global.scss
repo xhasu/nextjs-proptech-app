@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   min-width: 320px;
   // @include basehold();
-  @include layout($background: black, $lines: white,$main: 64px, $sub: 16px);
+  // @include layout($background: black, $lines: white,$main: 64px, $sub: 16px);
   // @include depth();
   @include font-default();
 }
@@ -101,8 +101,8 @@ small {
 
 section {
   position: relative;
-  @include center(1080px);
-  margin-top: 40px;
+  @include center(1200px);
+  margin-bottom: 40px;
   padding: 0 20px;
   box-sizing: border-box;
 }

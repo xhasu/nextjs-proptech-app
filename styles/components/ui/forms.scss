@@ -1,0 +1,43 @@
+
+.form {
+  position: relative;
+
+  &-dashboard {
+    position: relative;
+    background: white;
+    padding: 20px 30px;
+    width: 420px;
+    box-sizing: border-box;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .control {
+    position: relative;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    @extend %reset-input;
+    font-size: 14px;
+    color: black;
+    padding: 0 10px;
+    height: 35px;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:focus {
+      border-color: $color-brand;
+    }
+  }
+}

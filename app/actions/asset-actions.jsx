@@ -1,7 +1,8 @@
 const actions = () => {
-  const add = () => {
+  const add = (data) => {
     return {
       type: 'add',
+      payload: data,
     };
   };
 

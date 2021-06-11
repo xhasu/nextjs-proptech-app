@@ -1,29 +1,30 @@
 
 .dashboard {
-  position: relative;
-  
-  &-box {
-    display: flex;
-    background-color: white;
-    border-radius: 12px;
-    border: 1px solid hsl(330deg, 40%, 60%);
+  &-hero {
+    position: relative;
+    background-color: hsl(0, 0%, 80%);
+    padding: 60px 10px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
   }
-
+  &-head {
+    position: relative;
+  }
+  &-title {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  &-subtitle {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: rgba(black, .8);
+  }
+  &-form {
+    position: relative;
+  }
   &-content {
     position: relative;
-    flex: 1;
-  }
-
-  &-aside {
-    flex: none;
-    width: 240px;
-    border-left: 1px solid grey;
-    box-sizing: border-box;
-
-    .aside-wrap {
-      position: relative;
-      padding: 20px 10px;
-      box-sizing: border-box;
-    }
   }
 }
