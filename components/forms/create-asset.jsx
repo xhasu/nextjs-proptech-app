@@ -33,34 +33,44 @@ const CreateAsset = () => {
   }
 
   const handleCreateAsset = (event) => {
+
+    event.target.classList.add('was-validated');
     event.preventDefault();
     event.stopPropagation();
-
-    dispatch(AddAsset(mockAsset));
-    resetForm();
+    
+    if ( event.target.checkValidity() == true ) {
+      event.target.classList.remove('was-validated');
+      dispatch(AddAsset(mockAsset));
+      resetForm();
+    }
   }
 
   return (
     <form className="form form-dashboard needs-validation" onSubmit={handleCreateAsset} noValidate>
       <div className="control">
         <label>Nombre de la propiedad</label>
-        <input type="text" name="name" id="name" value={name} onChange={(event) => setName(event.target.value)} placeholder="Nombre" />
+        <input type="text" name="name" id="name" value={name} onChange={(event) => setName(event.target.value)} placeholder="Nombre" required={true} />
+        <span className="invalid-feedback">Campo obligatorio.</span>
       </div>
       <div className="control">
         <label>Precio de la propiedad</label>
-        <input type="number" name="price" id="price" value={price} onChange={(event) => setPrice(event.target.value)} placeholder="Precio" />
+        <input type="number" name="price" id="price" value={price} onChange={(event) => setPrice(event.target.value)} placeholder="Precio" required={true} />
+        <span className="invalid-feedback">Campo obligatorio.</span>
       </div>
       <div className="control">
         <label>Dirección de la propiedad</label>
-        <input type="text" name="address" id="address" value={address} onChange={(event) => setAddress(event.target.value)} placeholder="Dirección" />
+        <input type="text" name="address" id="address" value={address} onChange={(event) => setAddress(event.target.value)} placeholder="Dirección" required={true} />
+        <span className="invalid-feedback">Campo obligatorio.</span>
       </div>
       <div className="control">
         <label>Número de cuartos</label>
-        <input type="number" name="rooms" id="rooms" value={rooms} onChange={(event) => setRooms(event.target.value)} placeholder="1" min={1} />
+        <input type="number" name="rooms" id="rooms" value={rooms} onChange={(event) => setRooms(event.target.value)} placeholder="1" min={1} required={true} />
+        <span className="invalid-feedback">Campo obligatorio.</span>
       </div>
       <div className="control">
         <label>Metros de la propiedad <sub>M<sup>2</sup></sub> </label>
-        <input type="number" name="size" id="size" value={size} onChange={(event) => setSize(event.target.value)} placeholder="Metros" min={1} />
+        <input type="number" name="size" id="size" value={size} onChange={(event) => setSize(event.target.value)} placeholder="Metros" min={1} required={true} />
+        <span className="invalid-feedback">Campo obligatorio.</span>
       </div>
       <div className="control">
         <button type="submit" className="btn btn-primary">Guardar</button>

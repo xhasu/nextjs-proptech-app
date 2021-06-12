@@ -41,3 +41,17 @@
     }
   }
 }
+
+.needs-validation {
+  .invalid-feedback {
+    display: none;
+    font-size: 12px;
+    line-height: 1;
+    color: #ff0000;
+  }
+}
+.needs-validation.was-validated {
+  input:invalid + .invalid-feedback {
+    display: inline-block;
+  }
+}
